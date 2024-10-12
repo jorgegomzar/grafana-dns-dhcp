@@ -1,0 +1,5 @@
+groups:
+- name: cpu-node
+  rules:
+  - record: job_instance_mode:process_cpu_seconds_total:avg_rate5m
+    expr: avg by (job, instance, mode) (rate(process_cpu_seconds_total[5m]))

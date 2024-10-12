@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    restart: unless-stopped
+    environment:
+     - GF_SERVER_ROOT_URL=http://localhost/
+     - GF_INSTALL_PLUGINS=
+    network_mode: host
+    volumes:
+     - ./grafana_storage:/var/lib/grafana
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/prometheus.rules.yml:/etc/prometheus/prometheus.rules.yml
+
+  dnsmasq_exporter:
+    image: dnsmasq_exporter
+    container_name: dnsmasq_exporter
+    restart: unless-stopped
+    network_mode: host
+
+  dhcp_message_exporter:
+    image: dhcp_message_exporter
+    container_name: dhcp_message_exporter
+    restart: unless-stopped
+    network_mode: host
