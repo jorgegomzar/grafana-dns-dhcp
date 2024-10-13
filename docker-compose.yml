@@ -5,11 +5,14 @@ services:
     container_name: grafana
     restart: unless-stopped
     environment:
-     - GF_SERVER_ROOT_URL=http://localhost/
-     - GF_INSTALL_PLUGINS=
+      - GF_SERVER_ROOT_URL=http://localhost/
+      - GF_INSTALL_PLUGINS=
+
     network_mode: host
     volumes:
-     - ./grafana_storage:/var/lib/grafana
+      - ./grafana_storage:/var/lib/grafana
+      - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/main.yaml
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
 
   prometheus:
     image: prom/prometheus
