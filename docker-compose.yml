@@ -10,7 +10,7 @@ services:
 
     network_mode: host
     volumes:
-      - ./grafana_storage:/var/lib/grafana
+      - ./grafana/data:/var/lib/grafana
       - ./grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/main.yaml
       - ./grafana/dashboards:/var/lib/grafana/dashboards
 
