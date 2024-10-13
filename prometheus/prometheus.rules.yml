@@ -7,7 +7,8 @@ groups:
 - name: DHCPAlerts
   rules:
   - alert: RogueDHCPServerDetected
-    expr: dhcp_offer_per_server_count > 0 and ignoring(server_ip) dhcp_offer_per_server_count unless (server_ip in ["192.168.0.254"])  # replace with your known DHCP servers
+    # replace with your known DHCP servers
+    expr: dhcp_offer_per_server_count > 0 and ignoring(server_ip) dhcp_offer_per_server_count unless (dhcp_offer_per_server_count{server_ip=~"^(192\\.168\\.0\\.254)$"})
     for: 1m
     labels:
       severity: critical
