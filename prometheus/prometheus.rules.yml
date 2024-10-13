@@ -3,3 +3,14 @@ groups:
   rules:
   - record: job_instance_mode:process_cpu_seconds_total:avg_rate5m
     expr: avg by (job, instance, mode) (rate(process_cpu_seconds_total[5m]))
+
+- name: DHCPAlerts
+  rules:
+  - alert: RogueDHCPServerDetected
+    expr: dhcp_offer_per_server_count > 0 and ignoring(server_ip) dhcp_offer_per_server_count unless (server_ip in ["192.168.0.254"])  # replace with your known DHCP servers
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Rogue DHCP Server Detected"
+      description: "A rogue DHCP server with IP {{ $labels.server_ip }} is detected on the network."
