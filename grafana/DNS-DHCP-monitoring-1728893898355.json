@@ -103,15 +103,15 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 5,
+        "w": 4,
         "x": 0,
         "y": 1
       },
       "id": 21,
       "options": {
-        "colorMode": "value",
+        "colorMode": "background",
         "graphMode": "area",
-        "justifyMode": "auto",
+        "justifyMode": "center",
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
@@ -122,7 +122,7 @@
           "values": false
         },
         "showPercentChange": false,
-        "textMode": "auto",
+        "textMode": "value",
         "wideLayout": true
       },
       "pluginVersion": "11.2.0",
@@ -255,17 +255,19 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 13,
+        "h": 8,
+        "w": 12,
         "x": 0,
         "y": 5
       },
       "id": 20,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
+          "calcs": [
+            "sum"
+          ],
+          "displayMode": "table",
+          "placement": "right",
           "showLegend": true
         },
         "tooltip": {
@@ -281,7 +283,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum by(source_mac) (idelta(dhcp_message_total{message_type=\"$dhcp_message_type\"}[1m]))",
+          "expr": "sum by(source_mac) (idelta(dhcp_message_total{message_type=\"$dhcp_message_type\"}[5m]))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
@@ -356,16 +358,18 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 11,
-        "x": 13,
+        "h": 8,
+        "w": 6,
+        "x": 12,
         "y": 5
       },
       "id": 16,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "sum"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -458,16 +462,18 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 11,
-        "x": 13,
-        "y": 10
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 5
       },
       "id": 19,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "sum"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -562,7 +568,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 15
+        "y": 13
       },
       "id": 14,
       "options": {
@@ -663,7 +669,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 15
+        "y": 13
       },
       "id": 17,
       "options": {
@@ -764,7 +770,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 15
+        "y": 13
       },
       "id": 18,
       "options": {
@@ -806,7 +812,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 22
+        "y": 20
       },
       "id": 10,
       "panels": [],
@@ -842,7 +848,7 @@
         "h": 3,
         "w": 3,
         "x": 0,
-        "y": 23
+        "y": 21
       },
       "id": 1,
       "options": {
@@ -910,7 +916,7 @@
         "h": 3,
         "w": 3,
         "x": 3,
-        "y": 23
+        "y": 21
       },
       "id": 2,
       "options": {
@@ -976,7 +982,7 @@
         "h": 3,
         "w": 3,
         "x": 6,
-        "y": 23
+        "y": 21
       },
       "id": 4,
       "options": {
@@ -1042,7 +1048,7 @@
         "h": 3,
         "w": 3,
         "x": 9,
-        "y": 23
+        "y": 21
       },
       "id": 5,
       "options": {
@@ -1108,7 +1114,7 @@
         "h": 3,
         "w": 3,
         "x": 12,
-        "y": 23
+        "y": 21
       },
       "id": 6,
       "options": {
@@ -1151,7 +1157,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 24
       },
       "id": 9,
       "panels": [],
@@ -1223,7 +1229,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 27
+        "y": 25
       },
       "id": 11,
       "options": {
@@ -1328,7 +1334,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 27
+        "y": 25
       },
       "id": 3,
       "options": {
@@ -1433,7 +1439,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 27
+        "y": 25
       },
       "id": 8,
       "options": {
@@ -1538,7 +1544,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 35
+        "y": 33
       },
       "id": 7,
       "options": {
@@ -1644,7 +1650,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 35
+        "y": 33
       },
       "id": 12,
       "options": {
@@ -1750,7 +1756,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 35
+        "y": 33
       },
       "id": 13,
       "options": {
@@ -1890,6 +1896,6 @@
   "timezone": "",
   "title": "DNS + DHCP monitoring",
   "uid": "f843ed23-4631-4e2e-864f-81e4d387b6f8",
-  "version": 12,
+  "version": 15,
   "weekStart": ""
 }
