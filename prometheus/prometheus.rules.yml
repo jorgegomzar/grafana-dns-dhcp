@@ -15,3 +15,14 @@ groups:
     annotations:
       summary: "Rogue DHCP Server Detected"
       description: "A rogue DHCP server with IP {{ $labels.server_ip }} is detected on the network."
+
+- name: NodeAlerts
+  rules:
+  - alert: RamOver90
+    expr: ((1 - (node_memory_MemAvailable_bytes{instance="$node", job="$job"} / node_memory_MemTotal_bytes{instance="$node", job="$job"})) * 100) > 90
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "RAM consumption over 90%"
+      description: "RAM consumption over 90% threshold"
