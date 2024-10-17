@@ -19,7 +19,7 @@ groups:
 - name: NodeAlerts
   rules:
   - alert: RamOver90
-    expr: ((1 - (node_memory_MemAvailable_bytes{instance="$node", job="$job"} / node_memory_MemTotal_bytes{instance="$node", job="$job"})) * 100) > 90
+    expr: ((1 - (node_memory_MemAvailable_bytes{instance="localhost:9100", job="node_exporter"} / node_memory_MemTotal_bytes{instance="localhost:9100", job="node_exporter"})) * 100) > 90
     for: 1m
     labels:
       severity: critical
