@@ -26,3 +26,11 @@ groups:
     annotations:
       summary: "RAM consumption over 90%"
       description: "RAM consumption over 90% threshold"
+  - alert: SysLoadOver90
+    expr: (scalar(node_load1{instance="$node",job="$job"}) * 100 / count(count(node_cpu_seconds_total{instance="$node",job="$job"}) by (cpu))) > 90
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Sys Load over 90%"
+      description: "Sys Load over 90% threshold"
